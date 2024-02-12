@@ -1,0 +1,2 @@
+def testFunc():
+    print("test")

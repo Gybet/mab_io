@@ -1,13 +1,15 @@
 #Game Object Module
 #version 1.1
 
- 
 
-from MAB_IO_Level_API import *
-from MAB_IO_Texture_API import *
-from gameObjects.elements.element import *
-from gameObjects.camera.MAB_IO_Camera import *
 
+from gameObjects.camera.MAB_IO_Camera import Camera
+from gameObjects.camera.MAB_IO_Camera import IGRectElemRender
+
+from MAB_IO_Texture_API import Texture
+
+import pygame
+vec = pygame.Vector2
 
 
 
@@ -29,7 +31,7 @@ def gameObjectListGetElemList(GOList):
     return [go.elem for go in GOList]
 
 def gameObjectRender(GO,screen,camera,texture,showHitBox):
-    rectElemRender(GO.elem,screen,camera,texture,showHitBox)
+    IGRectElemRender(GO.elem,screen,camera,texture,showHitBox)
 
 def gameObjectListRender(GOList,screen,camera,texture,showHitBox):
     for GO in GOList :
@@ -64,31 +66,10 @@ def GORenderInit():
 
     texture = Texture()
 
-    backgroundPath  =  r".\background.png"
-    loadImageAsAsset(texture,camera,"background",(25,15),backgroundPath)
     return camera,texture,screen
 
-def drawBackground(screen,texture,camera):
-    rect = Rect(0,0,camera.screenWidth,camera.screenHeight)
-    screen.blit(texture.palette["background"],rect)
+
 
 def generalUpdate(camera):
     """ updates general context used to render game objects"""
-
-
-
-
-""" ================================ PLAYER OBJECT ====================================="""
-
-
-
-
-
-
-    
-
-       
-
-
-
 

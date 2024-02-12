@@ -1,5 +1,5 @@
-from gameObjects.elements.element import RectElem
-from gameObjects.elements.element import rectElemBindImage
+from gameObjects.elements.IGRectElem import RectElem
+from gameObjects.elements.IGRectElem import rectElemBindImage
 from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
 
 

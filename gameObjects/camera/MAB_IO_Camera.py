@@ -100,7 +100,7 @@ def loadParticleEffectAsAsset(texture,key,funcMat,nbPartMat):
 
     return index
 
-def rectElemRender(elem,screen,camera,texture,showHitBox = False,flip = (False,False)):
+def IGRectElemRender(elem,screen,camera,texture,showHitBox = False,flip = (False,False)):
      """ Call to the rendr module to draw the element on screen"""
      if elem.hasImage:
          
@@ -116,6 +116,26 @@ def rectElemRender(elem,screen,camera,texture,showHitBox = False,flip = (False,F
          rectModel =  (elem.pos.x, elem.pos.y, elem.width, elem.height)
          rectConverted =  cameraConvertRect(camera,rectModel)
          drawAnim(elem.animIndex,texture,screen,rectConverted,flip)
+
+def fixedRectElemRender(elem,screen,camera,texture,flip = (False,False)):
+
+    if elem.hasImage:
+         
+
+         widthPX = elem.rect[2]*camera.screenWidth
+         heightPX = elem.rect[3]*camera.screenHeight
+
+         xPX = elem.rect[0]*camera.screenWidth
+         yPX = (1-elem.rect[1]-elem.rect[3])*camera.screenHeight
+
+
+
+         rectConverted = Rect(xPX,yPX,widthPX,heightPX)
+
+         print(rectConverted)
+         drawImage(texture,screen,rectConverted,elem.imageKey,flip)
+
+
 
 def rectElemUpdateRender(elem,dt,texture):
     

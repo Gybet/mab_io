@@ -1,12 +1,12 @@
 from gameObjects.GameObject import killGO
 from gameObjects.GameObject import gameObjectListGetElemList
-from gameObjects.GameObject import playerPowerUp
-from gameObjects.elements.element import RectElem
-from gameObjects.elements.element import rectElemBindImage
-from gameObjects.elements.element import checkProximity
-from gameObjects.elements.element import rectElemEnableDynamics
-from gameObjects.elements.element import rectElemCheckLanded
-from gameObjects.elements.element import rectElemDynamicalUpdate
+from gameObjects.elements.IGRectElem import RectElem
+from gameObjects.elements.IGRectElem import rectElemBindImage
+from gameObjects.elements.IGRectElem import checkProximity
+from gameObjects.elements.IGRectElem import rectElemEnableDynamics
+from gameObjects.elements.IGRectElem import rectElemCheckLanded
+from gameObjects.elements.IGRectElem import rectElemDynamicalUpdate
+from gameObjects.elements.IGRectElem import rectElemBindAnim
 from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
 
 import pygame
@@ -39,5 +39,9 @@ def goldenBeerUpdate(beer,player,dt,GOColliderlist):
     collisionDescriptor = rectElemDynamicalUpdate(beer.elem,dt,colElemList,vec(magnitude,0))
     if checkProximity(player.elem,beer.elem,(0,0,0,0)):
         beer.powerUpSound.play()
-        playerPowerUp(player)
+        goldenBeerPowerUpPlayer(player)
         killGO(beer)
+
+def goldenBeerPowerUpPlayer(player):
+    player.phase = "trans"
+    rectElemBindAnim(player.elem,player.animationIndexTrans)

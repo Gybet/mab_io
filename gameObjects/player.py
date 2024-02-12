@@ -1,13 +1,13 @@
 from gameObjects.GameObject import  gameObjectListGetElemList
 
-from gameObjects.elements.element import RectElem
-from gameObjects.elements.element import rectElemBindImage
-from gameObjects.elements.element import rectElemBindAnim
-from gameObjects.elements.element import rectElemEnableDynamics
-from gameObjects.elements.element import rectElemCheckLanded
-from gameObjects.elements.element import rectElemDynamicalUpdate
+from gameObjects.elements.IGRectElem import RectElem
+from gameObjects.elements.commonRect import rectElemBindImage
+from gameObjects.elements.commonRect import rectElemBindAnim
+from gameObjects.elements.IGRectElem import rectElemEnableDynamics
+from gameObjects.elements.IGRectElem import rectElemCheckLanded
+from gameObjects.elements.IGRectElem import rectElemDynamicalUpdate
 
-from gameObjects.camera.MAB_IO_Camera import  rectElemRender
+from gameObjects.camera.MAB_IO_Camera import IGRectElemRender
 from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
 from gameObjects.camera.MAB_IO_Camera import loadAnimationAsAsset
 from gameObjects.camera.MAB_IO_Camera import loadImageListAsAsset
@@ -122,11 +122,9 @@ def playerRender(player,camera,screen,texture,showHitBox):
     flipX = False
     if player.elem.velocity.x < 0 :
         flipX = True
-    rectElemRender(player.elem,screen,camera,texture,showHitBox,flip=(flipX,False))
+    IGRectElemRender(player.elem,screen,camera,texture,showHitBox,flip=(flipX,False))
 
-def playerPowerUp(player):
-    player.phase = "trans"
-    rectElemBindAnim(player.elem,player.animationIndexTrans)
+
 
 def playerHitBlock(block):
     if block.phase == "init":

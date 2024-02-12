@@ -8,6 +8,8 @@ from MAB_IO_Level_API import *
 
 from os import listdir
 
+from gameObjects.camera.MAB_IO_Camera import cameraUpdate
+
 Rect = pygame.Rect
 vec = pygame.Vector2
 mx = pygame.mixer
@@ -18,6 +20,7 @@ from gameObjects.beer import *
 from gameObjects.goldenBeer import *
 from gameObjects.terrain import *
 from gameObjects.player import *
+from gameObjects.background import *
 
 
     
@@ -70,6 +73,9 @@ def levelLoad(level,texture,powerUpSound):
     levelAddGameObject(level,"goldenBeer",goldenBeer)
     blockAddContainedGO(middleBlock,goldenBeer)
 
+    background = Background(vec(0,0))
+    levelAddGameObject(level,"background",background)
+
 
 """ ========== TEXTURE LOAD SECTION ============"""
 
@@ -80,6 +86,7 @@ def textureLoad(texture,camera):
     blockLoadContent(texture,camera)
     beerLoadContent(texture,camera)
     goldenBeerLoadContent(texture,camera)
+    backgroundLoadContent(texture,camera)
 
 
 mx.init()
@@ -90,6 +97,7 @@ pygame.mixer.music.play()
 
 camera,texture,screen = GORenderInit()
 textureLoad(texture,camera)
+
 # pygame setup
 
 
@@ -131,31 +139,37 @@ while running:
             keyLock = 0
 
     """ GO update"""
-    colliderGOList = levelGetGOsByKeys(level , ["terrain","block"])    
+    blockList = levelGetGOsByKey(level,"block")
+    terrainList = levelGetGOsByKey(level,"terrain")
+    beerList = levelGetGOsByKey(level,"beer")
+    gBeerList = levelGetGOsByKey(level,"goldenBeer")
+    background = levelGetGOsByKey(level,"background")[0]
+
+    colliderGOList = terrainList + blockList  
     playerUpdate(player,keys,dt,colliderGOList,texture)
     #Player update
 
-    blockList = levelGetGOsByKey(level,"block")
+    
     for block in blockList:
         blockUpdate(block,texture,dt)
     #blocks update
         
-    beerList = levelGetGOsByKey(level,"beer")
     for beer in beerList:
         beerUpdate(beer,player)
 
-    gBeerList = levelGetGOsByKey(level,"goldenBeer")
     for gBeer in gBeerList:
         goldenBeerUpdate(gBeer,player,dt,colliderGOList)
-        
+
+
     """ render """
     cameraUpdate(camera,player)
     #camera Update
 
-    drawBackground(screen,texture,camera)
+    backgroundRender(background,screen,camera,texture)
+    #background render
 
-    levelGOList = levelGetAllGOs(level)
-    gameObjectListRender(levelGOList,screen,camera,texture,showHitBox)
+    interractiveGOs = blockList + terrainList + beerList + gBeerList
+    gameObjectListRender(interractiveGOs,screen,camera,texture,showHitBox)
     # rendering all elements in level
     
     playerRender(player,camera,screen,texture,showHitBox)
