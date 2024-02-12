@@ -3,13 +3,22 @@
 
 from datetime import datetime
 
-from MAB_IO_GameObject import *
+from gameObjects.GameObject import *
 from MAB_IO_Level_API import *
 
 from os import listdir
+
 Rect = pygame.Rect
 vec = pygame.Vector2
 mx = pygame.mixer
+
+
+from gameObjects.block import *
+from gameObjects.beer import *
+from gameObjects.goldenBeer import *
+from gameObjects.terrain import *
+from gameObjects.player import *
+
 
     
 """ ===========LEVEL SECTION =============="""

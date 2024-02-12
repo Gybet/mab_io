@@ -38,7 +38,7 @@ def animationSetDuration(animation,NbOfImage):
 def animationUpdate(animation,dt):
 
     animation.clock = animation.clock + dt
-    print(animation.key)
+ 
     if animation.clock > animation.duration :
         #if iteration comes at an end
         if animation.iter == animation.nbMaxLoop:

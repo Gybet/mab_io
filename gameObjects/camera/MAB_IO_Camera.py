@@ -1,5 +1,5 @@
 import pygame
-from MAB_IO_Render import *
+from gameObjects.camera.MAB_IO_Render import *
 from MAB_IO_Texture_API import *
 
 class Camera():

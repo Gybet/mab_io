@@ -1,10 +1,18 @@
 #Element Module
 #Version 1.1
 
-from MAB_IO_Physics import *
-from MAB_IO_Render import *
+from gameObjects.elements.rectPhysics import dynamics
+from gameObjects.elements.rectPhysics import integration
+from gameObjects.elements.rectPhysics import collisionHandler
+from gameObjects.elements.rectPhysics import collisionState2AABB
+from gameObjects.elements.rectPhysics import contactState2AABB
+from gameObjects.elements.rectPhysics import collisionState2AABB
+
+
 import pygame
 vec = pygame.Vector2
+def v2Add(u,v):
+    return vec(u.x + v.x , u.y + v.y)
 
 class RectElem():
     """ This class corresponds to a rectangular element
