@@ -1,0 +1,8 @@
+La version 1.1 propose une nouvelle architecture du projet
+
+1er chantier : migrer le code existant vers la nouvelle architecture
+
+	1 - Player - En cours
+	2 - Square- non démarré
+	3 - Block - non démarré
+	4 - terrain - non démarré
