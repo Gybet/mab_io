@@ -3,10 +3,10 @@ from gameObjects.GameObject import resurectGO
 from gameObjects.GameObject import GOSetPosition
 from elements.IGRectElem import RectElem
 from elements.commonRect import rectElemBindImage
-from MAB_IO_Camera import loadImageAsAsset
-from MAB_IO_Camera import loadAnimationAsAsset
-from MAB_IO_Camera import loadImageListAsAsset
-from MAB_IO_Camera import rectElemUpdateRender
+from camera import loadImageAsAsset
+from camera import loadAnimationAsAsset
+from camera import loadImageListAsAsset
+from camera import rectElemUpdateRender
 
 class Block():
      """ block which the player can collide with """

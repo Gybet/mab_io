@@ -1,12 +1,12 @@
 #Element Module
 #Version 1.1
 
-from rectPhysics import dynamics
-from rectPhysics import integration
-from rectPhysics import collisionHandler
-from rectPhysics import collisionState2AABB
-from rectPhysics import contactState2AABB
-from rectPhysics import collisionState2AABB
+from rect_physics import dynamics
+from rect_physics import integration
+from rect_physics import collisionHandler
+from rect_physics import collisionState2AABB
+from rect_physics import contactState2AABB
+from rect_physics import collisionState2AABB
 
 
 import pygame

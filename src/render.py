@@ -1,9 +1,7 @@
 import pygame
 from os import listdir
-from MAB_IO_Utilities import *
-import math
-Rect = pygame.Rect
-vec = pygame.Vector2
+from utilities import *
+
 
 
 """ ==========ANIMATION SECTION ============="""
@@ -95,7 +93,7 @@ def partEffectUpdate(partEffect,dt):
 
 def drawRectTransparentBackground(screen,rect,lineWidth = 1 , color = (255,0,0)):
 
-    rec = Rect(rect[0],rect[1],rect[2],rect[3])
+    rec = pygame.Rect(rect[0],rect[1],rect[2],rect[3])
     pygame.draw.rect(screen,pygame.Color(color),rec,lineWidth)
 
 def drawAnim(animIndex,texture,screen,rect,flip= (False,False)):

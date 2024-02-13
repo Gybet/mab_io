@@ -1,6 +1,6 @@
 from elements.IGRectElem import RectElem
 from elements.commonRect import rectElemBindImage
-from MAB_IO_Camera import loadImageAsAsset
+from camera import loadImageAsAsset
 
 
 class Terrain():

@@ -1,5 +1,5 @@
 import pygame
-from MAB_IO_Utilities import *
+from utilities import *
 Rect = pygame.Rect
 vec = pygame.Vector2
 

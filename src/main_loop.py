@@ -3,10 +3,10 @@
 
 
 from gameObjects.GameObject import *
-from MAB_IO_Level_API import *
+from level_API import *
 
 
-from MAB_IO_Camera import cameraUpdate
+from camera import cameraUpdate
 
 Rect = pygame.Rect
 vec = pygame.Vector2

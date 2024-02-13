@@ -1,6 +1,6 @@
 import pygame
-from MAB_IO_Render import *
-from MAB_IO_Texture_API import *
+from render import *
+from texture_API import *
 vec = pygame.Vector2
 
 class Camera():
@@ -40,7 +40,7 @@ def cameraConvertRect(camera,rect):
     widthOnScreen = camera.model2ScreenRatio * rect[2]
     heightOnScreen = camera.model2ScreenRatio * rect[3]
     
-    return Rect(posOnScreen.x, posOnScreen.y,widthOnScreen,heightOnScreen)
+    return pygame.Rect(posOnScreen.x, posOnScreen.y,widthOnScreen,heightOnScreen)
 
 def cameraUpdate(camera,player):
     playerCenterX = player.elem.pos.x + player.elem.width/2
@@ -138,7 +138,7 @@ def fixedRectElemRender(elem,screen,camera,texture,flip = (False,False)):
          xPX = elem.rect[0]*camera.screenWidth
          yPX = (1-elem.rect[1]-elem.rect[3])*camera.screenHeight
 
-         rectConverted = Rect(xPX,yPX,widthPX,heightPX)
+         rectConverted = pygame.Rect(xPX,yPX,widthPX,heightPX)
 
          print(rectConverted)
          drawImage(texture,screen,rectConverted,elem.imageKey,flip)

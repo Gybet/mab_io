@@ -1,6 +1,5 @@
 """ UTILITIES FUNCTIONS"""
 import pygame
-
 vec = pygame.Vector2
 
 def v2Add(u,v):

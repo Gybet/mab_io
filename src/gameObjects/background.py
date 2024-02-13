@@ -1,7 +1,7 @@
 from elements.fixedRectElem import FixedRectElem
 from elements.commonRect import rectElemBindImage
-from MAB_IO_Camera import loadImageAsAsset
-from MAB_IO_Camera import fixedRectElemRender
+from camera import loadImageAsAsset
+from camera import fixedRectElemRender
 
 class Background:
     def __init__(self,position):

@@ -3,7 +3,7 @@ from elements.commonRect import rectElemBindImage
 from elements.IGRectElem import checkProximity
 from gameObjects.GameObject import killGO
 
-from MAB_IO_Camera import loadImageAsAsset
+from camera import loadImageAsAsset
 
 class Beer():
     """ beer that the player can collect """

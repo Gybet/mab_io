@@ -3,10 +3,10 @@
 
 
 
-from MAB_IO_Camera import Camera
-from MAB_IO_Camera import IGRectElemRender
+from camera import Camera
+from camera import IGRectElemRender
 
-from MAB_IO_Texture_API import Texture
+from texture_API import Texture
 
 import pygame
 vec = pygame.Vector2
