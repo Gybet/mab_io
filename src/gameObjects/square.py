@@ -1,5 +1,5 @@
-from gameObjects.elements.IGRectElem import RectElem
-from gameObjects.elements.IGRectElem import rectElemBindImage
+from elements.IGRectElem import RectElem
+from elements.IGRectElem import rectElemBindImage
 
 
 class Square():

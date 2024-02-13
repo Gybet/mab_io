@@ -1,12 +1,12 @@
 #Element Module
 #Version 1.1
 
-from gameObjects.elements.rectPhysics import dynamics
-from gameObjects.elements.rectPhysics import integration
-from gameObjects.elements.rectPhysics import collisionHandler
-from gameObjects.elements.rectPhysics import collisionState2AABB
-from gameObjects.elements.rectPhysics import contactState2AABB
-from gameObjects.elements.rectPhysics import collisionState2AABB
+from rectPhysics import dynamics
+from rectPhysics import integration
+from rectPhysics import collisionHandler
+from rectPhysics import collisionState2AABB
+from rectPhysics import contactState2AABB
+from rectPhysics import collisionState2AABB
 
 
 import pygame
@@ -140,21 +140,3 @@ def checkProximity(elem1,elem2,directionRadius):
     proximityCheck = collisionState2AABB(elem1.boundaries,elem2.boundaries,directionRadius)[4]
 
     return proximityCheck
-
-""" RENDER FUNCTIONS """
-    
-def rectElemBindImage(elem,key):
-     elem.hasImage = True
-     elem.imageKey = key
-     elem.hasAnim = False
-     elem.animIndex = None
-
-def rectElemBindAnim(elem,index):
-     elem.hasImage = False
-     elem.imageKey = None
-     #unbinding image
-
-     elem.hasAnim = True
-     elem.animIndex = index
-     #binding anim
-

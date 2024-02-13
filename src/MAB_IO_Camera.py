@@ -1,6 +1,7 @@
 import pygame
-from gameObjects.camera.MAB_IO_Render import *
+from MAB_IO_Render import *
 from MAB_IO_Texture_API import *
+vec = pygame.Vector2
 
 class Camera():
     """ Class used to store render configuration and updadte the area of game rendered on screen """
@@ -24,7 +25,7 @@ class Camera():
         self.screenWidth = int(model2Screen * viewWidth)
         self.screenHeight = int(model2Screen * viewHeight)
 
-def cameraConvertSize(camera,size):
+def cameraConvertSizeGM(camera,size):
     """ Converts size in (width,length) format from game model space to screen space"""
     width = size[0]
     height = size[1]
@@ -56,9 +57,14 @@ def imageFromFile(path,dimensions,colorKey):
     img.set_colorkey(colorKey)
     return img
 
-def loadImageAsAsset(texture,camera,key,size,path,colorKey = (255,0,255)):
+def loadImageAsAsset(texture,camera,key,size,path,mode = "gameModel",colorKey = (255,0,255)):
     """ Takes a key, the path of an image and the size of render in game model and loads the corespond asset in texture object"""
-    imgSize = cameraConvertSize(camera , (size[0] , size[1]))
+    
+    if mode == "gameModel":
+        imgSize = cameraConvertSizeGM(camera , (size[0] , size[1]))
+    else :
+        imgSize = (size[0]*camera.screenWidth , size[1]*camera.screenHeight)
+    
     image = imageFromFile(path,imgSize,colorKey)
     textureAPILoadImage(texture,key,image)
 
@@ -73,9 +79,13 @@ def imageListFromFolder(folderPath,dimensions,colorKey):
         images.append(img)
     return images
 
-def loadImageListAsAsset(texture,camera,key,size,folderPath,colorKey = (255,0,255)):
+def loadImageListAsAsset(texture,camera,key,size,folderPath,mode="gameModel",colorKey = (255,0,255)):
     """ Loads all files in the folder as images and makes an asset of Texture out of them"""
-    imgSize = cameraConvertSize(camera , (size[0] , size[1]))
+    
+    if mode == "gameModel":
+        imgSize = cameraConvertSizeGM(camera , (size[0] , size[1]))
+    else :
+        imgSize = (size[0]*camera.screenWidth , size[1]*camera.screenHeight)
     imgList = imageListFromFolder(folderPath,imgSize,colorKey )
     textureAPILoadImageList(texture,key,imgList)
 
@@ -127,8 +137,6 @@ def fixedRectElemRender(elem,screen,camera,texture,flip = (False,False)):
 
          xPX = elem.rect[0]*camera.screenWidth
          yPX = (1-elem.rect[1]-elem.rect[3])*camera.screenHeight
-
-
 
          rectConverted = Rect(xPX,yPX,widthPX,heightPX)
 

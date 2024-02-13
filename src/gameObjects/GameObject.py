@@ -3,8 +3,8 @@
 
 
 
-from gameObjects.camera.MAB_IO_Camera import Camera
-from gameObjects.camera.MAB_IO_Camera import IGRectElemRender
+from MAB_IO_Camera import Camera
+from MAB_IO_Camera import IGRectElemRender
 
 from MAB_IO_Texture_API import Texture
 

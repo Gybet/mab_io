@@ -1,12 +1,12 @@
 from gameObjects.GameObject import killGO
 from gameObjects.GameObject import resurectGO
 from gameObjects.GameObject import GOSetPosition
-from gameObjects.elements.IGRectElem import RectElem
-from gameObjects.elements.IGRectElem import rectElemBindImage
-from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
-from gameObjects.camera.MAB_IO_Camera import loadAnimationAsAsset
-from gameObjects.camera.MAB_IO_Camera import loadImageListAsAsset
-from gameObjects.camera.MAB_IO_Camera import rectElemUpdateRender
+from elements.IGRectElem import RectElem
+from elements.commonRect import rectElemBindImage
+from MAB_IO_Camera import loadImageAsAsset
+from MAB_IO_Camera import loadAnimationAsAsset
+from MAB_IO_Camera import loadImageListAsAsset
+from MAB_IO_Camera import rectElemUpdateRender
 
 class Block():
      """ block which the player can collide with """

@@ -1,14 +1,12 @@
 #Main Loop for MABIO
 #version 1.1 
 
-from datetime import datetime
 
 from gameObjects.GameObject import *
 from MAB_IO_Level_API import *
 
-from os import listdir
 
-from gameObjects.camera.MAB_IO_Camera import cameraUpdate
+from MAB_IO_Camera import cameraUpdate
 
 Rect = pygame.Rect
 vec = pygame.Vector2

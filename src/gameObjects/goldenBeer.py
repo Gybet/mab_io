@@ -1,13 +1,13 @@
 from gameObjects.GameObject import killGO
 from gameObjects.GameObject import gameObjectListGetElemList
-from gameObjects.elements.IGRectElem import RectElem
-from gameObjects.elements.IGRectElem import rectElemBindImage
-from gameObjects.elements.IGRectElem import checkProximity
-from gameObjects.elements.IGRectElem import rectElemEnableDynamics
-from gameObjects.elements.IGRectElem import rectElemCheckLanded
-from gameObjects.elements.IGRectElem import rectElemDynamicalUpdate
-from gameObjects.elements.IGRectElem import rectElemBindAnim
-from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
+from elements.IGRectElem import RectElem
+from elements.commonRect import rectElemBindImage
+from elements.IGRectElem import checkProximity
+from elements.IGRectElem import rectElemEnableDynamics
+from elements.IGRectElem import rectElemCheckLanded
+from elements.IGRectElem import rectElemDynamicalUpdate
+from elements.commonRect import rectElemBindAnim
+from MAB_IO_Camera import loadImageAsAsset
 
 import pygame
 vec = pygame.Vector2

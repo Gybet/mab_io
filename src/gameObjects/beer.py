@@ -1,8 +1,9 @@
-from gameObjects.elements.IGRectElem import RectElem
-from gameObjects.elements.IGRectElem import rectElemBindImage
+from elements.IGRectElem import RectElem
+from elements.commonRect import rectElemBindImage
+from elements.IGRectElem import checkProximity
 from gameObjects.GameObject import killGO
-from gameObjects.elements.IGRectElem import checkProximity
-from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
+
+from MAB_IO_Camera import loadImageAsAsset
 
 class Beer():
     """ beer that the player can collect """

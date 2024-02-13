@@ -1,17 +1,17 @@
 from gameObjects.GameObject import  gameObjectListGetElemList
 
-from gameObjects.elements.IGRectElem import RectElem
-from gameObjects.elements.commonRect import rectElemBindImage
-from gameObjects.elements.commonRect import rectElemBindAnim
-from gameObjects.elements.IGRectElem import rectElemEnableDynamics
-from gameObjects.elements.IGRectElem import rectElemCheckLanded
-from gameObjects.elements.IGRectElem import rectElemDynamicalUpdate
+from elements.IGRectElem import RectElem
+from elements.commonRect import rectElemBindImage
+from elements.commonRect import rectElemBindAnim
+from elements.IGRectElem import rectElemEnableDynamics
+from elements.IGRectElem import rectElemCheckLanded
+from elements.IGRectElem import rectElemDynamicalUpdate
 
-from gameObjects.camera.MAB_IO_Camera import IGRectElemRender
-from gameObjects.camera.MAB_IO_Camera import loadImageAsAsset
-from gameObjects.camera.MAB_IO_Camera import loadAnimationAsAsset
-from gameObjects.camera.MAB_IO_Camera import loadImageListAsAsset
-from gameObjects.camera.MAB_IO_Camera import rectElemUpdateRender
+from MAB_IO_Camera import IGRectElemRender
+from MAB_IO_Camera import loadImageAsAsset
+from MAB_IO_Camera import loadAnimationAsAsset
+from MAB_IO_Camera import loadImageListAsAsset
+from MAB_IO_Camera import rectElemUpdateRender
 
 import pygame
 vec = pygame.Vector2
