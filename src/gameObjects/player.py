@@ -39,19 +39,19 @@ def playerLoadContent(texture,camera):
     playerWidth = 1.5
     playerHeight = 2.5
 
-    path =  r".\noncolliders_sprite\player_yohann_lean_anim\yohann_player_1.png"
+    path =  r".\content\images\animations\yohann_lean_animation\yohann_player_1.png"
     loadImageAsAsset(texture,camera,"playerLean",(playerWidth,playerHeight),path)
 
-    path =  r".\noncolliders_sprite\player_yohann_fat_anim\yohann_player_1.png"
+    path =  r".\content\images\animations\yohann_fat_animation\yohann_player_1.png"
     loadImageAsAsset(texture,camera,"playerFat",(playerWidth,playerHeight),path)
 
-    pathFolderAnim = r".\noncolliders_sprite\player_yohann_fat_anim"
+    pathFolderAnim = r".\content\images\animations\yohann_fat_animation"
     loadImageListAsAsset(texture,camera,"playerAnimFat",(playerWidth,playerHeight),pathFolderAnim)
 
-    pathFolderAnim = r".\noncolliders_sprite\player_yohann_lean_anim"
+    pathFolderAnim = r".\content\images\animations\yohann_lean_animation"
     loadImageListAsAsset(texture,camera,"playerAnimLean",(playerWidth,playerHeight),pathFolderAnim)
 
-    pathFolderAnim = r".\noncolliders_sprite\player_yohann_trans_anim"
+    pathFolderAnim = r".\content\images\animations\yohann_trans_animation"
     loadImageListAsAsset(texture,camera,"playerAnimTrans",(playerWidth,playerHeight),pathFolderAnim)
 
 def playerUpdate(player,keys,dt,colliderGOList,texture):

@@ -16,7 +16,7 @@ class Beer():
 def beerLoadContent(texture,camera):
     """ Loads content in palette for Beer GO"""
 
-    path =  r".\noncolliders_sprite\beer.png"
+    path =  r".\content\images\sprites\beer_sprite.png"
     loadImageAsAsset(texture,camera,"beer",(1,1),path,colorKey = (255,0,255))
     #loading base image
 

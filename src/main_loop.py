@@ -5,6 +5,7 @@
 from gameObjects.GameObject import *
 from level_API import *
 
+import os
 
 from camera import cameraUpdate
 
@@ -88,9 +89,10 @@ def textureLoad(texture,camera):
 
 
 mx.init()
-mx.music.load(r".\sound\music.mp3")
-jumpSound = mx.Sound(r".\sound\jump.mp3")
-powerUpSound = mx.Sound(r".\sound\powerUp.mp3")
+mx.music.load(r".\content\sound\music.mp3")
+jumpSound = mx.Sound(r".\content\sound\jump.mp3")
+
+powerUpSound = mx.Sound(r".\content\sound\powerUp.mp3")
 pygame.mixer.music.play()
 
 camera,texture,screen = GORenderInit()

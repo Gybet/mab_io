@@ -12,5 +12,5 @@ class Terrain():
         rectElemBindImage(self.elem,"terrain")
 
 def terrainLoadContent(texture,camera):
-    path =  r".\colliders_sprites\terrain_collider.png"
+    path =  r".\content\images\sprites\terrain_sprite.png"
     loadImageAsAsset(texture,camera,"terrain",(30,2),path)

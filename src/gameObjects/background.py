@@ -15,7 +15,7 @@ def backgroundRender(background,screen,camera,texture):
     
 
 def backgroundLoadContent(texture,camera):
-    backgroundPath  =  r".\background.png"
+    backgroundPath  =  r".\content\images\sprites\background_sprite.png"
     loadImageAsAsset(texture,camera,"background",(1,1),backgroundPath, mode="relative")
     print("hello")
 

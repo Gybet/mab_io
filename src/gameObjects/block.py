@@ -26,11 +26,11 @@ class Block():
 def blockLoadContent(texture,camera):
     """ Loads content in palette for block GO"""
 
-    path =  r".\colliders_sprites\block_collider.png"
+    path =  r".\content\images\sprites\block_sprite.png"
     loadImageAsAsset(texture,camera,"block",(0.75,0.75),path)
     #loading base image
 
-    pathFolderAnim =  r".\anim_bloc"
+    pathFolderAnim =  r".\content\images\animations\block_breaking_animation"
     loadImageListAsAsset(texture,camera,"blockAnim",(0.75,0.75),pathFolderAnim)
     
 

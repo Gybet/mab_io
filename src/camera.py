@@ -140,7 +140,7 @@ def fixedRectElemRender(elem,screen,camera,texture,flip = (False,False)):
 
          rectConverted = pygame.Rect(xPX,yPX,widthPX,heightPX)
 
-         print(rectConverted)
+         
          drawImage(texture,screen,rectConverted,elem.imageKey,flip)
 
 
