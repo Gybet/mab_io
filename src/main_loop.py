@@ -150,8 +150,8 @@ while running:
     background = levelGetGOsByKey(level,"background")[0]
     enemyList = levelGetGOsByKey(level,"enemy")
 
-    colliderGOList = terrainList + blockList  
-    playerUpdate(player,keys,dt,colliderGOList,texture)
+    fixedCollders = terrainList + blockList  
+    playerUpdate(player,keys,dt,fixedCollders + enemyList,texture)
     #Player update
 
     
@@ -163,10 +163,10 @@ while running:
         beerUpdate(beer,player)
 
     for gBeer in gBeerList:
-        goldenBeerUpdate(gBeer,player,dt,colliderGOList)
+        goldenBeerUpdate(gBeer,player,dt,fixedCollders)
 
     for enemy in enemyList:
-        enemyUpdate(enemy,dt,colliderGOList)
+        enemyUpdate(enemy,dt,fixedCollders)
 
 
     """ render """
@@ -176,6 +176,7 @@ while running:
     backgroundRender(background,screen,camera,texture)
     #background render
 
+    
     interractiveGOs = blockList + terrainList + beerList + gBeerList + enemyList
     gameObjectListRender(interractiveGOs,screen,camera,texture,showHitBox)
     # rendering all elements in level
