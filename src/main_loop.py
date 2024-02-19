@@ -2,7 +2,7 @@
 #version 1.1 
 
 
-from gameObjects.GameObject import *
+from gameObjects import *
 from level_API import *
 
 import os
@@ -20,6 +20,7 @@ from gameObjects.goldenBeer import *
 from gameObjects.terrain import *
 from gameObjects.player import *
 from gameObjects.background import *
+from gameObjects.enemy import *
 
 
     
@@ -74,6 +75,9 @@ def levelLoad(level,texture,powerUpSound):
 
     background = Background(vec(0,0))
     levelAddGameObject(level,"background",background)
+
+    enemy = Enemy(vec(10,6))
+    levelAddGameObject(level,"enemy",enemy)
 
 
 """ ========== TEXTURE LOAD SECTION ============"""
@@ -144,6 +148,7 @@ while running:
     beerList = levelGetGOsByKey(level,"beer")
     gBeerList = levelGetGOsByKey(level,"goldenBeer")
     background = levelGetGOsByKey(level,"background")[0]
+    enemyList = levelGetGOsByKey(level,"enemy")
 
     colliderGOList = terrainList + blockList  
     playerUpdate(player,keys,dt,colliderGOList,texture)
@@ -160,6 +165,9 @@ while running:
     for gBeer in gBeerList:
         goldenBeerUpdate(gBeer,player,dt,colliderGOList)
 
+    for enemy in enemyList:
+        enemyUpdate(enemy,dt,colliderGOList)
+
 
     """ render """
     cameraUpdate(camera,player)
@@ -168,7 +176,7 @@ while running:
     backgroundRender(background,screen,camera,texture)
     #background render
 
-    interractiveGOs = blockList + terrainList + beerList + gBeerList
+    interractiveGOs = blockList + terrainList + beerList + gBeerList + enemyList
     gameObjectListRender(interractiveGOs,screen,camera,texture,showHitBox)
     # rendering all elements in level
     

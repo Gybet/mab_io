@@ -1,0 +1,6 @@
+CHANGELOG
+
+v1.2 : 
+
+=> added enemy class, for now enemy can't interract with the player
+=>

@@ -89,7 +89,12 @@ def partEffectUpdate(partEffect,dt):
 
 
 
-"""  drawing function"""
+"""  drawing function for geometrical shapes"""
+
+def drawRectFilled(screen,rect,color = (255,0,0)):
+    """ draws a color filled rectangle
+    rect is a 4-uple in (x,y,width,height) format"""
+    pygame.draw.rect(screen,pygame.Color(color),rect)
 
 def drawRectTransparentBackground(screen,rect,lineWidth = 1 , color = (255,0,0)):
 
@@ -128,37 +133,3 @@ def drawImage(texture,screen,imgRect,imgKey, flip = (False,False) ):
     screen.blit(imgFlipped,imgRect)
     #drawing image 
 
-def drawer(screen,texture,solidDraws = [],imageDraws = [],animationDraws = [],particulesDraws = []):
-    """ Function that manages the draw of all games elements on the screen
-    DRAWS are list in [(colorCode/key/index , rectangle), ... ,] format """
-    #drawing background
-
-    
-    for solidDrawCall in solidDraws :
-        rect = solidDrawCall[1]
-        pygame.draw.rect(screen,pygame.Color(solidDrawCall[0]),rect)
-        #drawing solid color draw calls
-
-
-    for imgDrawCall in imageDraws :
-        imgRect = imgDrawCall[1]
-        image = texture.palette[imgDrawCall[0]]
-        screen.blit(image,imgRect)
-        #drawing image draw calls
-
-    for animDrawCall in animationDraws:
-        rect = animDrawCall[1]
-        drawAnim(animDrawCall[0],texture,screen,rect)
-        #animation draw calls
-
-    for partDrawCall in particulesDraws:
-        rect = partDrawCall[1]
-        drawPartEffect(texture,partDrawCall[0],screen,rect)
-        #particle draw calls
-         
-    
-
-#def FPSdrawer(screen,dt):
-    #FPS = str(int(1/dt))
-    #debug = font.render(FPS,True, (0,0,0))
-    #screen.blit(debug,(0,0))
