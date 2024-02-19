@@ -3,4 +3,4 @@ CHANGELOG
 v1.2 : 
 
 => added enemy class, for now enemy can't interract with the player
-=>
+=> When Player jumps it is rendered whith jumping sprite instead of walking animation

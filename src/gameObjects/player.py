@@ -42,8 +42,14 @@ def playerLoadContent(texture,camera):
     path =  r".\content\images\animations\yohann_lean_animation\yohann_player_1.png"
     loadImageAsAsset(texture,camera,"playerLean",(playerWidth,playerHeight),path)
 
+    path =  r".\content\images\animations\yohann_lean_animation\yohann_player_2.png"
+    loadImageAsAsset(texture,camera,"playerLeanJump",(playerWidth,playerHeight),path)
+
     path =  r".\content\images\animations\yohann_fat_animation\yohann_player_1.png"
     loadImageAsAsset(texture,camera,"playerFat",(playerWidth,playerHeight),path)
+
+    path =  r".\content\images\animations\yohann_fat_animation\yohann_player_1.png"
+    loadImageAsAsset(texture,camera,"playerFatJump",(playerWidth,playerHeight),path)
 
     pathFolderAnim = r".\content\images\animations\yohann_fat_animation"
     loadImageListAsAsset(texture,camera,"playerAnimFat",(playerWidth,playerHeight),pathFolderAnim)
@@ -63,8 +69,8 @@ def playerUpdate(player,keys,dt,colliderGOList,texture):
     #creation of inputs for Dynamical update - List of colliders
     
     inputRelatedForce = vec(0,0)
-
-    if rectElemCheckLanded(elem,colElemList):
+    landed = rectElemCheckLanded(elem,colElemList)
+    if landed:
         magnitude = 50
     else:
         magnitude = 7
@@ -73,7 +79,7 @@ def playerUpdate(player,keys,dt,colliderGOList,texture):
         inputRelatedForce.x = inputRelatedForce.x + magnitude*elem.m
     if keys[pygame.K_q]:
         inputRelatedForce.x = inputRelatedForce.x - magnitude*elem.m
-    if keys[pygame.K_z] and rectElemCheckLanded(elem,colElemList):
+    if keys[pygame.K_z] and landed:
         inputRelatedForce.y = inputRelatedForce.y + 10*elem.m/dt
         player.jumpSound.play()    
     if keys[pygame.K_s]:
@@ -91,13 +97,19 @@ def playerUpdate(player,keys,dt,colliderGOList,texture):
     if player.phase == "fat" :
         
         if elem.velocity.magnitude() > 0.2 :
-            rectElemBindAnim(elem,player.animationIndexFat)
+            if landed:
+                rectElemBindAnim(elem,player.animationIndexFat)
+            else:
+                rectElemBindImage(elem,"playerFatJump")
         else:
             rectElemBindImage(elem,"playerFat")
 
     elif player.phase == "lean":
         if elem.velocity.magnitude() > 0.2 :
-            rectElemBindAnim(elem,player.animationIndexLean)
+            if landed :
+                rectElemBindAnim(elem,player.animationIndexLean)
+            else:
+                rectElemBindImage(elem,"playerLeanJump")
         else:
             rectElemBindImage(elem,"playerLean")
     else:
